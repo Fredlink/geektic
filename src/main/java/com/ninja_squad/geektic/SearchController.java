@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/geeks")
-public class GeekController {
+@RequestMapping("/search")
+public class SearchController {
 	
 	@Autowired
 	GeekService geekService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
-		ModelAndView listSpec = new ModelAndView("Geeks");
-		listSpec.addObject("listeGeeks",geekService.listGeeks());
-		return listSpec;
+		ModelAndView search = new ModelAndView("recherche");
+		TypeInteret[] namedConstants = TypeInteret.values();
+		search.addObject("listeInterets",namedConstants);
+		return search;
 	}
 	
     @RequestMapping(value="/{id}", method = RequestMethod.GET)

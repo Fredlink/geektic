@@ -30,7 +30,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * @author JB
  */
 @Configuration
-@ComponentScan("com.ninja_squad")
+@ComponentScan("com.ninja_squad.geektic")
 @EnableWebMvc
 @EnableTransactionManagement
 public class AppConfig extends WebMvcConfigurerAdapter {

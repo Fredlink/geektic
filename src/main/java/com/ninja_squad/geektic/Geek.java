@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +27,9 @@ public class Geek {
 	private String nom;
 	
 	private String prenom;
+	
+	@Enumerated(EnumType.STRING)
+	private TypeGenre genre;
 	
 	private Long age;
 	
@@ -54,6 +59,14 @@ public class Geek {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	
+	public TypeGenre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(TypeGenre genre) {
+		this.genre = genre;
 	}
 
 	public String getPrenom() {

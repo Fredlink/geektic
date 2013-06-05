@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<title>Liste des spectacles</title>
+<title>Détail d'un geek</title>
 <link href="/geektic/css/bootstrap.css" rel="stylesheet">
 <link href="/geektic/css/bootstrap-responsive.css" rel="stylesheet"
 	media="screen">
@@ -34,11 +34,11 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#">Geektic</a>
+				<a class="brand" href="./geeks">Geektic</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="./search">Recherche</a></li>
+						<li><a href="./geeks">Home</a></li>
+						<li class="active"><a href="#">Recherche</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -47,19 +47,18 @@ body {
 	</div>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<div class="container-narrow">
-		<h1>Liste des geeks</h1>
-		<div class="well sidebar-nav">
-			<ul>
-				<li class="nav-header">Geeks</li>
-				<c:forEach items="${listeGeeks}" var="geek">
-					<li><a href="./geeks/${geek.id}">${geek.nom} - ${geek.prenom}</a></li>
+	<div class="row" style="width: 1000px; margin: auto;">
+		<div class="span6">
+			<h3>Rechercher un geek:</h3>
+			<h5>Interêts :</h5>
+			<select>
+				<c:forEach items="${listeInterets}" var="interet">
+					<option>${interet}</option>
 				</c:forEach>
-			</ul>
+			</select>
 		</div>
-		<!--/.well -->
+		<div class="span4"></div>
 	</div>
-	<!--/span-->
 
 
 

@@ -1,5 +1,6 @@
 package com.ninja_squad.geektic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class GeekService {
 	public Geek getGeek(Long id){
 		Geek geek = geekDao.findById(id);
 		return geek;
+	}
+	
+	public List<Geek> find(TypeInteret typeInteret) {
+		return new ArrayList<>();
 	}
 }

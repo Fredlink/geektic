@@ -25,6 +25,13 @@ public class Interet {
 	@JoinColumn(name = "id_geek", nullable = false)
 	private Geek geek;
 
+	public Interet() {
+	}
+	
+	public Interet(TypeInteret typeInteret) {
+		this.setInteret(typeInteret);
+	}
+
 	public Long getId() {
 		return id;
 	}

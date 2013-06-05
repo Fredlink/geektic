@@ -12,5 +12,6 @@ public class Geek_ {
 	public static volatile SingularAttribute<Geek, String> nom;
 	public static volatile SingularAttribute<Geek, String> prenom;
 	public static volatile SingularAttribute<Geek, Long> age;
+	public static volatile SingularAttribute<Geek, TypeGenre> genre;
 	public static volatile SetAttribute<Geek, Interet> interet;
 }

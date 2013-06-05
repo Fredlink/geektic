@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class GeekDao {
+public class GeekDao implements GeekDAOInterface {
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -34,5 +34,12 @@ public class GeekDao {
 		return em.createQuery(jpql, Geek.class)
 				 .setParameter("nom", "%" + nom.toLowerCase() + "%")
 				 .getResultList();
+	}
+	/* (non-Javadoc)
+	 * @see com.ninja_squad.geektic.GeekDAOInterface#findByTypeInteret(com.ninja_squad.geektic.TypeInteret)
+	 */
+	@Override
+	public List<Geek> findByTypeInteret(TypeInteret typeInteret) {
+		return null;
 	}
 }
