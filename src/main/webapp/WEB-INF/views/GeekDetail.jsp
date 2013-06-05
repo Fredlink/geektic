@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Détail d'un geek</title>
-<link href="/tpmvc/css/bootstrap.css" rel="stylesheet">
-<link href="/tpmvc/css/bootstrap-responsive.css" rel="stylesheet"
+<link href="/geektic/css/bootstrap.css" rel="stylesheet">
+<link href="/geektic/css/bootstrap-responsive.css" rel="stylesheet"
 	media="screen">
 <style type="text/css">
 body {
@@ -34,10 +34,10 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="../spectacles">Geektic</a>
+				<a class="brand" href="../geeks">Geektic</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="../spectacles">Home</a></li>
+						<li><a href="../geeks">Home</a></li>
 						<li class="active"><a href="#">${geek.nom}</a></li>
 					</ul>
 				</div>

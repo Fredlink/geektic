@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Liste des spectacles</title>
-<link href="/tpmvc/css/bootstrap.css" rel="stylesheet">
-<link href="/tpmvc/css/bootstrap-responsive.css" rel="stylesheet"
+<link href="/geektic/css/bootstrap.css" rel="stylesheet">
+<link href="/geektic/css/bootstrap-responsive.css" rel="stylesheet"
 	media="screen">
 <style type="text/css">
 body {
@@ -47,10 +47,10 @@ body {
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<div class="container-narrow">
-		<h1>Choisissez votre spectacle</h1>
+		<h1>Liste des geeks</h1>
 		<div class="well sidebar-nav">
 			<ul>
-				<li class="nav-header">Spectacles</li>
+				<li class="nav-header">Geeks</li>
 				<c:forEach items="${listeGeeks}" var="geek">
 					<li><a href="./geeks/${geek.id}">${geek.nom} - ${geek.prenom}</a></li>
 				</c:forEach>

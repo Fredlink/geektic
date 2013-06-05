@@ -5,8 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -79,7 +77,7 @@ public class Geek {
 	}
 	
 	public void addInteret(Interet interet) {
-		interets.setGeek(this);
+		interet.setGeek(this);
 		interets.add(interet);
 	}
 }

@@ -16,7 +16,7 @@ public class GeekController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
-		ModelAndView listSpec = new ModelAndView("Spectacles");
+		ModelAndView listSpec = new ModelAndView("Geeks");
 		listSpec.addObject("listeGeeks",geekService.listGeeks());
 		return listSpec;
 	}
