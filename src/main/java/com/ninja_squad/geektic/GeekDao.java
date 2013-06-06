@@ -40,6 +40,11 @@ public class GeekDao implements GeekDAOInterface {
 	 */
 	@Override
 	public List<Geek> findByTypeInteret(TypeInteret typeInteret) {
-		return null;
+		String jpql = 			
+				"select geek from Geek geek " +
+				"LEFT JOIN geek.interets interet where interet.interet = :TypeInteret";
+			return em.createQuery(jpql, Geek.class)
+					 .setParameter("TypeInteret", typeInteret)
+					 .getResultList();
 	}
 }

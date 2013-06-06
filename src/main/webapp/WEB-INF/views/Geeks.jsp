@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<title>Liste des spectacles</title>
+<title>Liste des geeks</title>
 <link href="/geektic/css/bootstrap.css" rel="stylesheet">
 <link href="/geektic/css/bootstrap-responsive.css" rel="stylesheet"
 	media="screen">
@@ -14,6 +14,20 @@ body {
 	padding-top: 50px;
 	padding-bottom: 40px;
 }
+
+.girl a:link {
+	color: #FFB6C1;
+} /* unvisited link */
+.girl a:visited {
+	color: #FFB6C1;
+} /* visited link */
+.girl a:hover {
+	color: #FFB6C1;
+} /* mouse over link */
+.girl a:active {
+	color: #FFB6C1;
+} /* selected link */
+
 /* Custom container */
 .container-narrow {
 	margin: 0 auto;
@@ -37,8 +51,14 @@ body {
 				<a class="brand" href="#">Geektic</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="./search">Recherche</a></li>
+						<c:if test="${empty interet}">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="./search">Recherche</a></li>
+						</c:if>
+						<c:if test="${not empty interet}">
+							<li><a href="./geeks">Home</a></li>
+							<li class="active"><a href="#">Recherche</a></li>
+						</c:if>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -51,11 +71,27 @@ body {
 		<h1>Liste des geeks</h1>
 		<div class="well sidebar-nav">
 			<ul>
-				<li class="nav-header">Geeks</li>
+				<li class="nav-header">Geeks <c:if test="${not empty interet}">
+				    fans de ${interet}
+				</c:if>
+				</li>
 				<c:forEach items="${listeGeeks}" var="geek">
-					<li><a href="./geeks/${geek.id}">${geek.nom} - ${geek.prenom}</a></li>
+					<c:if test="${geek.genre == 'Féminin'}">
+						<li class="girl"><a href="./geeks/${geek.id}">${geek.nom}
+								- ${geek.prenom}</a></li>
+					</c:if>
+					<c:if test="${geek.genre == 'Masculin'}">
+						<li><a href="./geeks/${geek.id}">${geek.nom}
+								- ${geek.prenom}</a></li>
+					</c:if>
 				</c:forEach>
 			</ul>
+			<c:if test="${not empty interet}">
+				<a href="./search"> <br />
+					<button type="submit" class="btn btn-primary">Faire une
+						nouvelle recherche</button>
+				</a>
+			</c:if>
 		</div>
 		<!--/.well -->
 	</div>

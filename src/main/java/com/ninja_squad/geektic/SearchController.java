@@ -1,10 +1,12 @@
 package com.ninja_squad.geektic;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -22,10 +24,15 @@ public class SearchController {
 		return search;
 	}
 	
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public ModelAndView getSpectacle(@PathVariable("id") long id) {
-    	ModelAndView listSpec = new ModelAndView("GeekDetail");
-    	listSpec.addObject("geek",geekService.getGeek(id));
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView getSpectacle(@RequestParam("interest") String interest) {
+    	ModelAndView listSpec = new ModelAndView("Geeks");
+    	List<Geek> ge = geekService.find(TypeInteret.valueOf(interest));
+		for(Geek geek : ge){
+			System.out.println(geek.getNom());
+		}
+    	listSpec.addObject("listeGeeks",geekService.find(TypeInteret.valueOf(interest)));
+    	listSpec.addObject("interet",interest);
         return listSpec;
     }
 }

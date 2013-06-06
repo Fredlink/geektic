@@ -25,6 +25,8 @@ public class GeekService {
 	}
 	
 	public List<Geek> find(TypeInteret typeInteret) {
-		return new ArrayList<>();
+		List<Geek> geeks = new ArrayList<>();
+		geeks = geekDao.findByTypeInteret(typeInteret);
+		return geeks;
 	}
 }

@@ -14,6 +14,7 @@ body {
 	padding-top: 50px;
 	padding-bottom: 40px;
 }
+
 /* Custom container */
 .container-narrow {
 	margin: 0 auto;

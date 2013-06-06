@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<title>Détail d'un geek</title>
+<title>Recherche</title>
 <link href="/geektic/css/bootstrap.css" rel="stylesheet">
 <link href="/geektic/css/bootstrap-responsive.css" rel="stylesheet"
 	media="screen">
@@ -14,6 +14,7 @@ body {
 	padding-top: 50px;
 	padding-bottom: 40px;
 }
+
 /* Custom container */
 .container-narrow {
 	margin: 0 auto;
@@ -48,16 +49,20 @@ body {
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<div class="row" style="width: 1000px; margin: auto;">
-		<div class="span6">
-			<h3>Rechercher un geek:</h3>
-			<h5>Interêts :</h5>
-			<select>
-				<c:forEach items="${listeInterets}" var="interet">
-					<option>${interet}</option>
-				</c:forEach>
-			</select>
-		</div>
-		<div class="span4"></div>
+		<form action="./search" method="POST">
+			<div class="span6">
+				<h3>Rechercher un geek:</h3>
+				<h5>Interêts :</h5>
+				<select name="interest">
+					<c:forEach items="${listeInterets}" var="interet">
+						<option>${interet}</option>
+					</c:forEach>
+				</select><br/>
+				<button type="submit" class="btn">Rechercher </button>
+			</div>
+
+			<div class="span4"></div>
+		</form>
 	</div>
 
 
