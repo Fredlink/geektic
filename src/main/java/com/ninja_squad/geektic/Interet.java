@@ -18,8 +18,7 @@ public class Interet {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "interet_generator")
 	private Long id;
 	
-	@Enumerated(EnumType.STRING)
-	private TypeInteret interet;
+	private String interet;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_geek", nullable = false)
@@ -40,12 +39,12 @@ public class Interet {
 		this.id = id;
 	}
 
-	public TypeInteret getInteret() {
+	public String getInteret() {
 		return interet;
 	}
 
 	public void setInteret(TypeInteret interet) {
-		this.interet = interet;
+		this.interet = interet.toString();
 	}
 
 	public Geek getGeek() {

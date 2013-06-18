@@ -24,6 +24,12 @@ public class GeekService {
 		return geek;
 	}
 	
+	public List<Geek> find(String name) {
+		List<Geek> geeks = new ArrayList<>();
+		geeks = geekDao.findByNom(name);
+		return geeks;
+	}
+	
 	public List<Geek> find(TypeInteret typeInteret) {
 		List<Geek> geeks = new ArrayList<>();
 		geeks = geekDao.findByTypeInteret(typeInteret);

@@ -75,6 +75,9 @@ body {
 				    fans de ${interet}
 				</c:if>
 				</li>
+				<c:if test="${not empty interet} AND ${empty listeGeeks}">
+					Aucun geeks ne correspondant au critère
+				</c:if>
 				<c:forEach items="${listeGeeks}" var="geek">
 					<c:if test="${geek.genre == 'Féminin'}">
 						<li class="girl"><a href="./geeks/${geek.id}">${geek.nom}

@@ -19,20 +19,34 @@ public class SearchController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView search = new ModelAndView("recherche");
-		TypeInteret[] namedConstants = TypeInteret.values();
-		search.addObject("listeInterets",namedConstants);
+		TypeInteret[] namedConstantsLangs = TypeInteret.valuesLanguages();
+		search.addObject("listeInteretsLangs",namedConstantsLangs);
+		TypeInteret[] namedConstantsJv = TypeInteret.valuesJv();
+		search.addObject("listeInteretsJv",namedConstantsJv);
 		return search;
 	}
 	
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView getSpectacle(@RequestParam("interest") String interest) {
+    public ModelAndView getSpectacle(
+    		@RequestParam("interest") String interest,
+    		@RequestParam("name") String nom,
+    		@RequestParam("btnSearch") String typeSearch) {
     	ModelAndView listSpec = new ModelAndView("Geeks");
-    	List<Geek> ge = geekService.find(TypeInteret.valueOf(interest));
-		for(Geek geek : ge){
-			System.out.println(geek.getNom());
-		}
-    	listSpec.addObject("listeGeeks",geekService.find(TypeInteret.valueOf(interest)));
-    	listSpec.addObject("interet",interest);
+    	if(typeSearch.equals("Rechercher par nom")){
+	    	List<Geek> ge = geekService.find(nom);
+			for(Geek geek : ge){
+				System.out.println(geek.getNom());
+			}
+	    	listSpec.addObject("listeGeeks",geekService.find(nom));
+    	}
+    	if(typeSearch.equals("Rechercher par intérêt")){
+	    	List<Geek> ge = geekService.find(TypeInteret.valueOf(interest));
+			for(Geek geek : ge){
+				System.out.println(geek.getNom());
+			}
+	    	listSpec.addObject("listeGeeks",geekService.find(TypeInteret.valueOf(interest)));
+	    	listSpec.addObject("interet",interest);
+    	}
         return listSpec;
     }
 }

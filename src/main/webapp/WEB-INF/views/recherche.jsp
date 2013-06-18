@@ -24,6 +24,10 @@ body {
 .container-narrow>hr {
 	margin: 30px 0;
 }
+
+#btnSearch{
+	margin-top: -10px; 
+}
 </style>
 </head>
 <body>
@@ -50,15 +54,24 @@ body {
 	<script src="js/bootstrap.min.js"></script>
 	<div class="row" style="width: 1000px; margin: auto;">
 		<form action="./search" method="POST">
-			<div class="span6">
+			<div class="span9">
 				<h3>Rechercher un geek:</h3>
-				<h5>Interêts :</h5>
+			    <input type="text" class="input-medium search-query" name="name">
+			    <input type="submit" name="btnSearch" class="btn" Value="Rechercher par nom">
+			    <p class="text-center">-------</p>
 				<select name="interest">
-					<c:forEach items="${listeInterets}" var="interet">
+					<optgroup label="Languages">
+					<c:forEach items="${listeInteretsLangs}" var="interet">
 						<option>${interet}</option>
 					</c:forEach>
-				</select><br/>
-				<button type="submit" class="btn">Rechercher </button>
+					</optgroup>
+					<optgroup label="Jeux vidéos">
+					<c:forEach items="${listeInteretsJv}" var="interet">
+						<option>${interet}</option>
+					</c:forEach>
+					</optgroup>
+				</select>
+				<input type="submit" name="btnSearch" class="btn" id="btnSearch" Value="Rechercher par intérêt">
 			</div>
 
 			<div class="span4"></div>

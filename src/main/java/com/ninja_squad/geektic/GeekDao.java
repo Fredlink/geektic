@@ -30,6 +30,7 @@ public class GeekDao implements GeekDAOInterface {
 		String jpql = 
 			"select geek from Geek geek"
 			+ " where lower(geek.nom) like :nom"
+			+ " or lower(geek.prenom) like :nom"
 			+ " order by geek.nom";
 		return em.createQuery(jpql, Geek.class)
 				 .setParameter("nom", "%" + nom.toLowerCase() + "%")
@@ -44,7 +45,7 @@ public class GeekDao implements GeekDAOInterface {
 				"select geek from Geek geek " +
 				"LEFT JOIN geek.interets interet where interet.interet = :TypeInteret";
 			return em.createQuery(jpql, Geek.class)
-					 .setParameter("TypeInteret", typeInteret)
+					 .setParameter("TypeInteret", typeInteret.toString())
 					 .getResultList();
 	}
 }

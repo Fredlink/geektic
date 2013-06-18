@@ -8,6 +8,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Interet.class)
 public class Interet_ {
 	public static volatile SingularAttribute<Interet, Long> id;
-	public static volatile SingularAttribute<Interet, TypeInteret> interet;
+	public static volatile SingularAttribute<Interet, String> interet;
 	public static volatile SingularAttribute<Interet, Geek> geek;
 }
