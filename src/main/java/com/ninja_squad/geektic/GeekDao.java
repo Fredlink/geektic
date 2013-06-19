@@ -1,10 +1,14 @@
 package com.ninja_squad.geektic;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -22,8 +26,24 @@ public class GeekDao implements GeekDAOInterface {
 		em.persist(geek);
 	}
 	
+	public void merge(Geek geek) {
+		em.merge(geek);
+	}
+	
 	public Geek findById(Long id) {
 		return em.find(Geek.class, id);
+	}
+	
+	public void majVisite(Long id) throws UnknownHostException {
+		Geek geekId = em.find(Geek.class, id);
+        DateTime dt = DateTime.now();
+		geekId.setCptVisite(geekId.getCptVisite()+1);
+		Audit aud = new Audit();
+		aud.setDateVisite(dt.getDayOfMonth()+"/"+dt.getMonthOfYear()+"/"+dt.getYear()+" "+dt.getHourOfDay()+":"+dt.getMinuteOfHour());
+		aud.setIdGeek(id);
+		aud.setIp(InetAddress.getLocalHost().toString());
+		em.persist( aud);
+		merge(geekId);
 	}
 	
 	public List<Geek> findByNom(String nom) {

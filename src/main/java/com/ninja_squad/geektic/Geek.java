@@ -33,6 +33,8 @@ public class Geek {
 	
 	private Long age;
 	
+	private Long cptVisite;
+	
 	@OneToMany(mappedBy = "geek")
 	private Set<Interet> interets = new HashSet<>(0);
 	
@@ -83,6 +85,14 @@ public class Geek {
 
 	public void setAge(Long age) {
 		this.age = age;
+	}
+	
+	public Long getCptVisite() {
+		return cptVisite;
+	}
+
+	public void setCptVisite(Long cptVisite) {
+		this.cptVisite = cptVisite;
 	}
 	
 	public Set<Interet> getInterets() {

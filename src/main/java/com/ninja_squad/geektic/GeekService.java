@@ -1,5 +1,6 @@
 package com.ninja_squad.geektic;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,12 @@ public class GeekService {
 	
 	public Geek getGeek(Long id){
 		Geek geek = geekDao.findById(id);
+		try {
+			geekDao.majVisite(id);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return geek;
 	}
 	

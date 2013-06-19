@@ -3,6 +3,7 @@
 	<persistence-unit name="TP_JPA" transaction-type="RESOURCE_LOCAL">
 		<class>com.ninja_squad.geektic.Geek</class>
 		<class>com.ninja_squad.geektic.Interet</class>
+		<class>com.ninja_squad.geektic.Audit</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/TP_JPA"/>
 			<property name="javax.persistence.jdbc.user" value="sa"/>

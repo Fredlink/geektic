@@ -68,6 +68,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/G:/IUT/ProjetJpa/geektic/caches/artifacts-23/filestore/org.hibernate/hibernate-entitymanager/4.1.10.Final/jar/f069607c5a4fa4313205a6d1fb76f70e3524e322/hibernate-entitymanager-4.1.10.Final.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/G:/IUT/ProjetJpa/geektic/caches/artifacts-23/filestore/joda-time/joda-time/2.2/jar/a5f29a7acaddea3f4af307e8cf2d0cc82645fd7d/joda-time-2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/G:/IUT/ProjetJpa/geektic/caches/artifacts-23/filestore/org.hibernate/hibernate-core/4.1.10.Final/jar/1600b79cffc60111a656e9ab045d31b077da82d1/hibernate-core-4.1.10.Final.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
