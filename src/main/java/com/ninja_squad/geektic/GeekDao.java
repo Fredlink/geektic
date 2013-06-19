@@ -36,14 +36,15 @@ public class GeekDao implements GeekDAOInterface {
 	
 	public void majVisite(Long id) throws UnknownHostException {
 		Geek geekId = em.find(Geek.class, id);
-        DateTime dt = DateTime.now();
 		geekId.setCptVisite(geekId.getCptVisite()+1);
+		merge(geekId);
+        DateTime dt = DateTime.now();
 		Audit aud = new Audit();
 		aud.setDateVisite(dt.getDayOfMonth()+"/"+dt.getMonthOfYear()+"/"+dt.getYear()+" "+dt.getHourOfDay()+":"+dt.getMinuteOfHour());
 		aud.setIdGeek(id);
-		aud.setIp(InetAddress.getLocalHost().toString());
-		em.persist( aud);
-		merge(geekId);
+		;
+		aud.setIp(InetAddress.getLocalHost().getHostAddress());
+		em.persist(aud);
 	}
 	
 	public List<Geek> findByNom(String nom) {
