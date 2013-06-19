@@ -38,6 +38,7 @@ public class SearchController {
 				System.out.println(geek.getNom());
 			}
 	    	listSpec.addObject("listeGeeks",geekService.find(nom));
+	    	listSpec.addObject("nameSearch","true");
     	}
     	if(typeSearch.equals("Rechercher par intérêt")){
 	    	List<Geek> ge = geekService.find(TypeInteret.valueOf(interest));

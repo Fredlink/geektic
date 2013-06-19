@@ -52,10 +52,16 @@ body {
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<c:if test="${empty interet}">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="./search">Recherche</a></li>
+							<c:if test="${empty nameSearch}">
+								<li class="active"><a href="#">Home</a></li>
+								<li><a href="./search">Recherche</a></li>
+							</c:if>	
 						</c:if>
 						<c:if test="${not empty interet}">
+							<li><a href="./geeks">Home</a></li>
+							<li class="active"><a href="#">Recherche</a></li>
+						</c:if>
+						<c:if test="${not empty nameSearch}">
 							<li><a href="./geeks">Home</a></li>
 							<li class="active"><a href="#">Recherche</a></li>
 						</c:if>
@@ -89,6 +95,12 @@ body {
 					</c:if>
 				</c:forEach>
 			</ul>
+			<c:if test="${not empty nameSearch}">
+				<a href="./search"> <br />
+					<button type="submit" class="btn btn-primary">Faire une
+						nouvelle recherche</button>
+				</a>
+			</c:if>
 			<c:if test="${not empty interet}">
 				<a href="./search"> <br />
 					<button type="submit" class="btn btn-primary">Faire une
