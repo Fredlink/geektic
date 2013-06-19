@@ -10,7 +10,9 @@ public class Audit {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "audit_generator")
 	private Long id;
 	
-	private Long idGeek;
+	@ManyToOne
+	@JoinColumn(name = "idGeek", nullable = false)
+	private Geek geek;
 	
 	private String dateVisite;
 	
@@ -26,13 +28,13 @@ public class Audit {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Long getIdGeek() {
-		return idGeek;
+	
+	public Geek getGeek() {
+		return geek;
 	}
 
-	public void setIdGeek(Long idGeek) {
-		this.idGeek = idGeek;
+	public void setGeek(Geek geek) {
+		this.geek = geek;
 	}
 
 	public String getDateVisite() {

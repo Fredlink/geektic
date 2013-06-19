@@ -8,7 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Audit.class)
 public class Audit_ {
 	public static volatile SingularAttribute<Audit, Long> id;
-	public static volatile SingularAttribute<Audit, Long> idGeek;
+	public static volatile SingularAttribute<Audit, Geek> geek;
 	public static volatile SingularAttribute<Audit, String> dateVisite;
 	public static volatile SingularAttribute<Audit, String> ip;
 }

@@ -41,7 +41,7 @@ public class GeekDao implements GeekDAOInterface {
         DateTime dt = DateTime.now();
 		Audit aud = new Audit();
 		aud.setDateVisite(dt.getDayOfMonth()+"/"+dt.getMonthOfYear()+"/"+dt.getYear()+" "+dt.getHourOfDay()+":"+dt.getMinuteOfHour());
-		aud.setIdGeek(id);
+		aud.setGeek(geekId);
 		aud.setIp(InetAddress.getLocalHost().getHostAddress());
 		em.persist(aud);
 	}
